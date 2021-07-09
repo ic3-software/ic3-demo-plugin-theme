@@ -134,6 +134,7 @@ export const themeOptions: ThemeOptions = {
  */
 function themeComponents(theme: Theme): void {
 
+    //TODO (mpo) (david) Pas du tout bon !
     Object.assign(theme.components, {
 
         /**
