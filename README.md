@@ -1,6 +1,6 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
-A working example of an icCube Dashboard plugin creating a custom theme only.
+A working example of an icCube Dashboards plugin creating a custom theme only.
 
 ### Webpack Module Federation
 
@@ -21,7 +21,10 @@ The `package.json` file is containing common scripts:
     zip     : zip the /dist directory to deploy into an icCube server
     clean   : delete /dist /kit directories.
 
-A JetBrains Intellij project is available for a quick start.
+A JetBrains IntelliJ project is available for a quick start.
+
+If you are looking for inspiration, you can check
+[MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
 ### MyPluginTheme Renaming
 
