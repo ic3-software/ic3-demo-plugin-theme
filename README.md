@@ -2,6 +2,9 @@
 
 A working example of an icCube Dashboards plugin creating a custom theme only.
 
+icCube is using Material UI as its underlying theme technology so if you are looking for inspiration, you can check
+[MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
+
 ### Webpack Module Federation
 
 Please take care about the setup of the `ModuleFederationPlugin` in the [webpack.common.js](./webpack.common.js) file.
@@ -23,9 +26,6 @@ The `package.json` file is containing common scripts:
 
 A JetBrains IntelliJ project is available for a quick start.
 
-If you are looking for inspiration, you can check
-[MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
-
 ### MyPluginTheme Renaming
 
 This example is creating a plugin named `MyPluginTheme`. Before starting hacking the code we advise searching and
@@ -39,17 +39,17 @@ the plugins loaded into an icCube server.
 
 This example starts and shares the module `MyPluginTheme` @ `localhost:4002` (see `webpack.dev.js` file).
 
-Refer to this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
 that is explaining how to debug the plugin.
 
 ### Build/Deploy
 
-Refer to this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Deploy.md)
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Deploy.md)
 that is explaining how to deploy the plugin.
 
 ### Documentation
 
-See this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Overview.md)
+See this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Overview.md)
 for a detailed documentation of the dev. kit.
 
 _

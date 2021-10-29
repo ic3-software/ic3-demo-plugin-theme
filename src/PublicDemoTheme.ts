@@ -1,19 +1,8 @@
-import {ThemeOptions} from "@material-ui/core";
-import {Theme} from "@material-ui/core/styles";
+import {ThemeOptions} from "@mui/material";
+import {Theme} from "@mui/material/styles";
 import WebFont from "@iccube/webfontloader";
 
 export const themeId = "Demo";
-
-/**
- * Lazy load using google fonts -> https://fonts.google.com/
- *
- * You can include fonts directly in this package by adding them to package.json
- */
-WebFont.load({
-    google: {
-        families: ['Rubik:300,400']
-    }
-});
 
 const fontFamily = "'Rubik', sans-serif";
 
@@ -39,6 +28,29 @@ export const themeOptions: ThemeOptions = {
         id: themeId,
         caption: "Demo",
 
+        cssClass: 'ic3-demo-theme',
+
+        loadFonts: (continuation: () => void) => {
+
+            // Remotely loading Google fonts but you can as well include the fonts in your plugin.
+            // icCube is using @fontsource to package the Statos theme fonts.
+
+            WebFont.load({
+                google: {
+                    families: ['Rubik:300,400']
+                },
+
+                active: function () {
+                    continuation();
+                },
+
+                inactive: function () {
+                    continuation();
+                },
+            });
+
+        },
+
         widgetBox: {
             contentOffset: {top: 32, left: 0},
         },
@@ -46,7 +58,38 @@ export const themeOptions: ThemeOptions = {
         /**
          * The first defined layout is used as the default one.
          */
-        layouts: [],
+        layouts: [{
+
+            layoutConfigId: 'Demo. Desktop Layout',
+
+            pageSize: {
+                type: "unlimited",
+                pageSizeUnits: "px",
+                pageWidth: 1366,
+            },
+
+            pageOrientation: "portrait",
+
+            pageMargin: {
+                sizeUnits: "px",
+                top: 50,
+                bottom: 50,
+                left: 50,
+                right: 50,
+            },
+
+            pageBackgroundColor: 'white',
+
+            expandH: true,
+
+            grid: {
+                snap: true,
+                show: true,
+                width: 25,
+                height: 50,
+            },
+
+        }],
     },
 
 
@@ -134,7 +177,6 @@ export const themeOptions: ThemeOptions = {
  */
 function themeComponents(theme: Theme): void {
 
-    //TODO (mpo) (david) Pas du tout bon !
     Object.assign(theme.components, {
 
         /**
@@ -174,7 +216,22 @@ function themeComponents(theme: Theme): void {
             ],
             styleOverrides: {
                 root: {
-                    // css here, to change the 'standard'  look of the buttons
+                    "&.WidgetBox-standard": {
+                        backgroundColor: "white",
+                    },
+                    "&.WidgetBox-embedded": {
+                        backgroundColor: "white",
+                    },
+                    "& .WidgetBox-header": {
+                        height: "32px",
+                        marginLeft: '10px',
+                        marginRight: '5px',
+                        borderBottom: '1px solid ' + theme.palette.divider,
+                    },
+                    "& .WidgetBox-headerTitle": {
+                        lineHeight: '32px',
+                        fontWeight: "bold",
+                    },
                 }
             }
         },
