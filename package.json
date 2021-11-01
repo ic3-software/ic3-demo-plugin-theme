@@ -1,12 +1,12 @@
 {
   "name": "@ic3/demo-plugin-theme",
-  "version": "8.0.0-alpha.15",
+  "version": "8.0.0-rc.1",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "8.0.0-alpha.15"
+    "@ic3/reporting-api": "8.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
