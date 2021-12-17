@@ -1,13 +1,14 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
-A working example of an icCube Dashboards plugin creating a custom theme only.
+A working example of an icCube Dashboards plugin creating a custom theme.
 
 icCube is using Material UI as its underlying theme technology so if you are looking for inspiration, you can check
 [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
-### Webpack Module Federation
+### Overview
 
-Please take care about the setup of the `ModuleFederationPlugin` in the [webpack.common.js](./webpack.common.js) file.
+The plugin is a webpack federated module that is loaded at runtime by icCube Dashboards server. Please take care of the
+setup of the `ModuleFederationPlugin` in the [webpack.common.js](./webpack.common.js) file.
 
 ### Getting Started
 
@@ -35,12 +36,12 @@ Keep that name simple (i.e., ASCII letter without any space, separator, etc...) 
 (once deployed into an icCube server), Webpack module name, localization id, etc... That name must be unique across all
 the plugins loaded into an icCube server.
 
-### Debug
+### Develop
 
 This example starts and shares the module `MyPluginTheme` @ `localhost:4002` (see `webpack.dev.js` file).
 
-Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
-that is explaining how to debug the plugin.
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Develop.md)
+that is explaining how to develop the plugin.
 
 ### Build/Deploy
 
