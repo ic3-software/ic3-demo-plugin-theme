@@ -1,13 +1,14 @@
 import {ThemeOptions} from "@mui/material";
 import {Theme} from "@mui/material/styles";
 import WebFont from "@iccube/webfontloader";
+import {ic3Components, PivotTableClasses, TableClasses} from "@ic3/reporting-api";
 
 export const themeId = "Demo";
 
 const fontFamily = "'Rubik', sans-serif";
 
 /**
- * To make life like a bit easier. We can use as many font families as we want in a theme.
+ * To make life easier. We can use as many font families as we want in a theme.
  */
 function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
     return {
@@ -18,6 +19,7 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
         letterSpacing: `${Math.round(spacing / size)}em`
     }
 }
+
 
 /**
  * Input of createMuiTheme( {...} )
@@ -173,14 +175,26 @@ export const themeOptions: ThemeOptions = {
 }
 
 /**
- * Attach the Material-UI components to the theme.
+ * Add variant to MuiButtons for typescript (not working ?)
  */
-function themeComponents(theme: Theme): void {
+// declare module '@mui/material/Button' {
+//     interface ButtonPropsVariantOverrides {
+//         Fancy: true;
+//     }
+// }
 
-    Object.assign(theme.components, {
+/**
+ * Attach the Material-UI components to the theme.
+ *
+ * Typed version
+ *
+ * Hint: types might get tricky, you can change the return type to any
+ */
+function themeComponents(theme: Theme): ic3Components {
 
+    return {
         /**
-         * Adding a new variant to the WidgetBox
+         * Widget Box variants
          */
         WidgetBox: {
             variants: [
@@ -237,22 +251,25 @@ function themeComponents(theme: Theme): void {
         },
 
         /**
-         * Adding a new variant to the buttons filter that is using Mui component
+         * Button Filter variants
          *
-         * FilterButtons -> ic3 component to register a new MuiButton variant so it's accessible the dashboard editor
-         * MuiButton -> the component we are styling with a new variant
+         * Buttons are rendered using MUI buttons. To add a variants you need two steps
+         *
+         * 1) Add to FilterButtons the name of the variants so it's available in the UI
+         * 2) Create your variant styling a MUI button
          */
         FilterButtons: {
             variants: [
                 {
                     props: {variant: 'Fancy'},
-                }
+                    style: {}
+                },
             ],
         },
         MuiButton: {
             variants: [
                 {
-                    props: {variant: 'Fancy'},
+                    props: {variant: 'Fancy'} as any,  /* ButtonPropsVariantOverrides augmentation is not working  */
                     style: {
                         borderRadius: 100,
                         minHeight: '2rem',
@@ -273,6 +290,8 @@ function themeComponents(theme: Theme): void {
         },
 
         /**
+         * Slider Filter variants
+         *
          * An example adding a variant to the Slider without adding it to the underlying Mui Component
          *
          * Pay attention how we add a version for the 'small' size
@@ -343,7 +362,72 @@ function themeComponents(theme: Theme): void {
             ]
         },
 
-    });
+
+        /**
+         * Table variants
+         *
+         * The underlying component for the table is the MUI DataGrid Pro (it's complex component)
+         *
+         *  Demo : https://mui.com/components/data-grid/style/#custom-theme
+         *  MUI CSS :  https://mui.com/api/data-grid/data-grid-pro/#css
+         *
+         */
+        Table: {
+            variants: [
+                {
+                    props: {variant: "MicroSize"},
+                    style: {
+                        [`& .${TableClasses.main}`]: {
+                            fontSize: '0.4rem'
+                        },
+                        [`& .${TableClasses.columnHeaderTitle}`]: {
+                            overflow: 'visible',
+                            lineHeight: '1rem',
+                            whiteSpace: 'normal',
+                        },
+                        [`& .${TableClasses.columnSeparator}`]: {
+                            display: 'none',
+                        },
+                        [`& .${TableClasses.cell}`]: {
+                            borderBottom: 'none',
+                        }
+                    },
+                }
+            ],
+        },
+
+        /**
+         * Pivot Table variants
+         */
+
+        PivotTable: {
+
+            variants: [
+                {
+                    props: {variant: "MicroSize"},
+                    style: {
+                        [`& .${PivotTableClasses.main}`]: {
+                            fontSize: '0.4rem'
+                        },
+                        [`& .${PivotTableClasses.topHeaderTitle}`]: {
+                            overflow: 'visible',
+                            lineHeight: '1rem',
+                            whiteSpace: 'normal',
+                        },
+                        [`& .${PivotTableClasses.columnSeparator}`]: {
+                            display: 'none',
+                        },
+                        [`& .${PivotTableClasses.cell}`]: {
+                            borderBottom: 'none',
+                        },
+                        [`& .${PivotTableClasses.leftHeaderCell}`]: {
+                            borderBottomWidth: 0,
+                        }
+                    },
+                }
+            ],
+        }
+    };
 
 }
 
@@ -355,6 +439,6 @@ function themeComponents(theme: Theme): void {
  */
 export function themeDecorator(theme: Theme): void {
 
-    themeComponents(theme);
+    Object.assign(theme.components, themeComponents(theme));
 
 }
