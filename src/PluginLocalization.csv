@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------------
+# localization tag, language (, language)+
+# -----------------------------------------------------------------------------
+
+tag,en
+
+# -----------------------------------------------------------------------------
+# Variants
+# -----------------------------------------------------------------------------
+
+variant.Fancy, Fancy
+variant.MicroSize, Micro Size
+variant.Pretto.fr, Pretto.fr
+variant.Rounded, Rounded Corners
+
+# -----------------------------------------------------------------------------
+# A common field can be defined as:
+#
+#       MyPluginTheme.fieldName, ...
+#
+# For a specific field in a given widget template:
+#
+#       MyPluginTheme.templateId.fieldName, ...
+#
+# -----------------------------------------------------------------------------
+

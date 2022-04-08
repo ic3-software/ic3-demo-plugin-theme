@@ -5,6 +5,33 @@ A working example of an icCube Dashboards plugin creating a custom theme.
 icCube is using Material UI as its underlying theme technology so if you are looking for inspiration, you can check
 [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
+This plugin is demonstrating how to:
+
+- change the font
+- change colors and define new color palettes
+- change typographies
+- add some dashboard layouts
+
+as well as:
+
+- theming the dashboard application (i.e., list of dashboard application) menu
+
+A theme can define variants (i.e., sets of preset widget options). This plugin is demonstrating add to one or more
+variants for the following widgets:
+
+- widget box
+- buttons (filter)
+- checkboxes (filter)
+- slider (filter)
+- table
+- pivot-table
+
+A theme is able to (re)define the default values of the widget options visible in the widget editor. This plugin is
+demonstrating new default values for the following widgets:
+
+- table
+- pivot-table
+
 ### Overview
 
 The plugin is a webpack federated module that is loaded at runtime by icCube Dashboards server. Please take care of the

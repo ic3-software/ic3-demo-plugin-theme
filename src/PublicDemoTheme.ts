@@ -1,7 +1,7 @@
 import {ThemeOptions} from "@mui/material";
 import {Theme} from "@mui/material/styles";
 import WebFont from "@iccube/webfontloader";
-import {ic3Components, PivotTableClasses, TableClasses} from "@ic3/reporting-api";
+import {AppClasses, ic3Components, PivotTableClasses, TableClasses, TableRowHeightOptions, ReportAppLeftPanelClasses} from "@ic3/reporting-api";
 
 export const themeId = "Demo";
 
@@ -28,7 +28,7 @@ export const themeOptions: ThemeOptions = {
 
     ic3: {
         id: themeId,
-        caption: "Demo",
+        caption: "ic3 Demo Theme",
 
         cssClass: 'ic3-demo-theme',
 
@@ -92,6 +92,58 @@ export const themeOptions: ThemeOptions = {
             },
 
         }],
+
+        /**
+         * @see IThemeWidgetDefaults (IThemeManager.ts)
+         */
+        widgetDefaults: {
+
+            /**
+             * Setup widget box options for both ic3.Table & ic3.PivotTable widgets.
+             *
+             * @see WidgetBoxOptions (ThemeWidgetBox.ts)
+             */
+            box: {
+
+                ic3: {
+
+                    Table: {
+                        withHeader: false,
+                    },
+
+                    PivotTable: {
+                        withHeader: false,
+                    }
+                },
+            },
+
+            /**
+             * Setup widget options for both ic3.Table & ic3.PivotTable widgets.
+             */
+            options: {
+
+                ic3: {
+
+                    /**
+                     * @see TableChartOptions (ThemeTable.ts)
+                     */
+                    Table: {
+                        tableSize: TableRowHeightOptions.compact,
+                        footer: true,
+                        footerPagination: true,
+                    },
+
+                    /**
+                     * @see PivotTableChartOptions (ThemePivotTable.ts)
+                     */
+                    PivotTable: {
+                        tableSize: TableRowHeightOptions.compact,
+                    }
+
+                }
+            }
+        },
+
     },
 
 
@@ -116,6 +168,10 @@ export const themeOptions: ThemeOptions = {
             selectedOpacity: 1,
             unSelectedOpacity: 0.4,
 
+            /**
+             * Report application menu color
+             */
+            reportAppMenu: "#cddc39",
 
             /**
              * list of palettes available in the reporting
@@ -174,6 +230,64 @@ export const themeOptions: ThemeOptions = {
     },
 }
 
+export const themeOptions2 = {
+
+    ic3: {
+        id: themeId + "_2",
+        caption: "ic3 Demo Theme II",
+
+        cssClass: 'ic3-demo-theme',
+    },
+
+
+    /**
+     * Material Playground for colors -> https://material.io/resources/color
+     */
+    palette: {
+
+        primary: {main: "#cddc39"},
+        secondary: {main: "#7986cb"},
+        error: {main: "#f44336"},
+        warning: {main: "#ff9800"},
+        info: {main: "#2196f3"},
+        success: {main: "#4caf50"},
+        text: {primary: "#16194C"},
+
+        ic3: {
+
+            selected: '#ffc107',
+            selectedText: '#fafafa',
+            selectedBackground: '#fff350',
+            selectedOpacity: 1,
+            unSelectedOpacity: 0.4,
+
+
+            /**
+             * list of palettes available in the reporting
+             */
+            chartPalettes: {
+                default: ["#ecea6c", "#e4af5d", "#de9e9c", "#db83c7", "#ae87d7", "#689ecd", "#3dacb8", "#5cc9c1", "#88d786", "#55c670"],
+                heatmap1: ["#006837", "#1a9850", "#66bd63", "#a6d96a", "#d9ef8b", "#fee08b", "#fdae61", "#f46d43", "#d73027", "#a50026"],
+                heatmap2: ["#313695", "#4575b4", "#74add1", "#abd9e9", "#e0f3f8", "#fee08b", "#fdae61", "#f46d43", "#d73027", "#a50026"],
+                // you can add more palettes here
+            },
+
+            /**
+             * List of single colors
+             *
+             * The list will be completed with MUI palette colors (primary,..text) and the default chart palette
+             *
+             * @see MandatorySingleColors
+             */
+            chartSingleColors: {
+                default: "#cddc39",
+                // you can add more colors here
+            },
+
+        },
+    },
+}
+
 /**
  * Add variant to MuiButtons for typescript (not working ?)
  */
@@ -190,7 +304,7 @@ export const themeOptions: ThemeOptions = {
  *
  * Hint: types might get tricky, you can change the return type to any
  */
-function themeComponents(theme: Theme): ic3Components {
+export function themeComponents(theme: Theme): ic3Components {
 
     return {
         /**
@@ -250,6 +364,95 @@ function themeComponents(theme: Theme): ic3Components {
             }
         },
 
+        // https://mui.com/components/radio-buttons/#customization
+        FilterCheckbox: {
+            variants: [
+                {
+                    props: {variant: 'Fancy'},
+                    style: {
+                        "&": {
+                            // change labels for both radios and checkboxes
+                            '.MuiFormControlLabel-label': {
+                                ...theme.typography.body2
+                            },
+                            // change look for  radios
+                            ".MuiRadio-root": {
+                                borderRadius: '50%',
+                                width: 16,
+                                height: 16,
+                                margin: theme.spacing(0.5),
+                                boxShadow:
+                                    theme.palette.mode === 'dark'
+                                        ? '0 0 0 1px rgb(16 22 26 / 40%)'
+                                        : 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+                                backgroundColor: theme.palette.mode === 'dark' ? '#394b59' : '#f5f8fa',
+                                backgroundImage:
+                                    theme.palette.mode === 'dark'
+                                        ? 'linear-gradient(180deg,hsla(0,0%,100%,.05),hsla(0,0%,100%,0))'
+                                        : 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+                                '.Mui-focusVisible &': {
+                                    outline: '2px auto rgba(19,124,189,.6)',
+                                    outlineOffset: 2,
+                                },
+                                'input:hover ~ &': {
+                                    backgroundColor: theme.palette.mode === 'dark' ? '#30404d' : '#ebf1f5',
+                                },
+                                'input:disabled ~ &': {
+                                    boxShadow: 'none',
+                                    background:
+                                        theme.palette.mode === 'dark' ? 'rgba(57,75,89,.5)' : 'rgba(206,217,224,.5)',
+                                },
+                            },
+                            ".MuiRadio-root.Mui-checked": {
+                                backgroundColor: '#137cbd',
+                                backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+                                '&:before': {
+                                    display: 'block',
+                                    width: 16,
+                                    height: 16,
+                                    backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
+                                    content: '""',
+                                },
+                                'input:hover ~ &': {
+                                    backgroundColor: '#106ba3',
+                                },
+                            },
+                            // change look for  checkboxes
+                            // add an ok icon as backgroundImage when checked
+                            // empty when not check
+                            ".MuiCheckbox-root": {
+                                width: 16,
+                                height: 16,
+                                margin: theme.spacing(0.5),
+                                display: 'block',
+                                content: '""',
+                                ".MuiSvgIcon-root": {
+                                    display: 'none'
+                                },
+                                '.Mui-focusVisible &': {
+                                    outline: '2px auto rgba(19,124,189,.6)',
+                                    outlineOffset: 2,
+                                },
+                                'input:hover ~ &': {
+                                    backgroundColor: '#106ba3',
+                                },
+                                'input:disabled ~ &': {
+                                    boxShadow: 'none',
+                                    background: 'rgba(57,75,89,.5)',
+                                },
+                            },
+                            ".MuiCheckbox-root.Mui-checked": {
+                                backgroundImage:
+                                    "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath" +
+                                    " fill-rule='evenodd' clip-rule='evenodd' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' " +
+                                    " fill='" + theme.palette.ic3.selected.replace('#', '%23') + "'/%3E%3C/svg%3E\")",
+                            }
+                        },
+                    }
+                },
+            ],
+        },
+
         /**
          * Button Filter variants
          *
@@ -266,6 +469,7 @@ function themeComponents(theme: Theme): ic3Components {
                 },
             ],
         },
+
         MuiButton: {
             variants: [
                 {
@@ -362,7 +566,6 @@ function themeComponents(theme: Theme): ic3Components {
             ]
         },
 
-
         /**
          * Table variants
          *
@@ -370,7 +573,6 @@ function themeComponents(theme: Theme): ic3Components {
          *
          *  Demo : https://mui.com/components/data-grid/style/#custom-theme
          *  MUI CSS :  https://mui.com/api/data-grid/data-grid-pro/#css
-         *
          */
         Table: {
             variants: [
@@ -399,9 +601,7 @@ function themeComponents(theme: Theme): ic3Components {
         /**
          * Pivot Table variants
          */
-
         PivotTable: {
-
             variants: [
                 {
                     props: {variant: "MicroSize"},
@@ -426,9 +626,48 @@ function themeComponents(theme: Theme): ic3Components {
                     },
                 }
             ],
+        },
+
+        /**
+         * Style overrides for the dashboard application
+         */
+        App: {
+            styleOverrides: {
+                root: {
+
+                    gridTemplateColumns: "325px 1fr",
+
+                    [`& .${AppClasses.appAppPayload}`]: {},
+
+                    [`& .${AppClasses.appAppLeftFilter}`]: {
+                        borderRight: '1px solid #eeeeee',
+                        padding: theme.spacing(0.5),
+                    }
+                }
+            }
+        },
+
+        /**
+         * Style overrides for the application viewer with left-panel filter
+         */
+        ReportAppLeftPanel: {
+            styleOverrides: {
+                root: {
+                    [`& .${ReportAppLeftPanelClasses.reportAppLeftPanelTitle}`]: {
+                        paddingLeft: theme.spacing(2),
+                        fontSize: '1.4em',
+                        fontWeight: 400,
+                        whiteSpace: "normal"
+                    }
+                }
+            }
         }
     };
 
+}
+
+export function themeStatosDecorator(theme: Theme) {
+    return themeComponents(theme)
 }
 
 /**
@@ -437,8 +676,11 @@ function themeComponents(theme: Theme): ic3Components {
  *
  * @param theme created from themeOptions
  */
-export function themeDecorator(theme: Theme): void {
+export function themeDecorator(theme: Theme) {
 
-    Object.assign(theme.components, themeComponents(theme));
+    // you might change theme here as well
+
+    // Replace existing components.
+    return themeComponents(theme)
 
 }
