@@ -7,7 +7,7 @@ icCube is using Material UI as its underlying theme technology so if you are loo
 
 This plugin is demonstrating how to:
 
-- change the font
+- change the font (using [Web Font Loader](https://github.com/typekit/webfontloader))
 - change colors and define new color palettes
 - change typographies
 - add some dashboard layouts
