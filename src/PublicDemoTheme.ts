@@ -1,7 +1,15 @@
 import {ThemeOptions} from "@mui/material";
 import {Theme} from "@mui/material/styles";
 import WebFont from "@iccube/webfontloader";
-import {AppClasses, ic3Components, PivotTableClasses, TableClasses, TableRowHeightOptions, ReportAppLeftPanelClasses} from "@ic3/reporting-api";
+import {
+    AppClasses,
+    ic3Components,
+    PivotTableClasses,
+    ReportAppLeftPanelClasses,
+    TableClasses,
+    TableRowHeightOptions,
+    WidgetBoxClasses
+} from "@ic3/reporting-api";
 
 export const themeId = "Demo";
 
@@ -79,8 +87,6 @@ export const themeOptions: ThemeOptions = {
                 left: 50,
                 right: 50,
             },
-
-            pageBackgroundColor: 'white',
 
             expandH: true,
 
@@ -162,6 +168,8 @@ export const themeOptions: ThemeOptions = {
 
         ic3: {
 
+            pageBackgroundColor: '#ffffff',
+
             selected: '#ffc107',
             selectedText: '#fafafa',
             selectedBackground: '#fff350',
@@ -234,7 +242,7 @@ export const themeOptions2 = {
 
     ic3: {
         id: themeId + "_2",
-        caption: "ic3 Demo Theme II",
+        caption: "ic3 Demo Theme 2",
 
         cssClass: 'ic3-demo-theme',
     },
@@ -254,6 +262,8 @@ export const themeOptions2 = {
         text: {primary: "#16194C"},
 
         ic3: {
+
+            pageBackgroundColor: '#ffffff',
 
             selected: '#ffc107',
             selectedText: '#fafafa',
@@ -315,28 +325,28 @@ export function themeComponents(theme: Theme): ic3Components {
                 {
                     props: {variant: "Rounded"},
                     style: {
-                        "&.WidgetBox-standard, &.WidgetBox-embedded": {
+                        [`&.${WidgetBoxClasses.standard}, &.${WidgetBoxClasses.embedded}`]: {
                             boxShadow: "4px 8px " + theme.palette.grey.A400,
                             borderRadius: "10px",
                             border: 'solid 1px ' + theme.palette.grey.A400,
                         },
-                        "& .WidgetBox-header": {
+                        [`& .${WidgetBoxClasses.header}`]: {
                             justifyContent: "center",
                             height: '40px',
                             borderColor: theme.palette.grey.A700
                         },
-                        "& .WidgetBox-headerTitle": {
+                        [`& .${WidgetBoxClasses.headerTitle}`]: {
                             ...theme.typography.h6,
                             lineHeight: '40px',
                         },
-                        "& .WidgetBox-userMenu": {
+                        [`& .${WidgetBoxClasses.userMenu}`]: {
                             height: '40px',
                         },
                         // hide/show box hover over the box
-                        "& .WidgetBox-userMenuClosed": {
+                        [`& .${WidgetBoxClasses.userMenuClosed}`]: {
                             opacity: 0,
                         },
-                        "&:hover .WidgetBox-userMenuClosed": {
+                        [`&:hover .${WidgetBoxClasses.userMenuClosed}`]: {
                             opacity: 1,
                         }
                     },
@@ -344,19 +354,19 @@ export function themeComponents(theme: Theme): ic3Components {
             ],
             styleOverrides: {
                 root: {
-                    "&.WidgetBox-standard": {
+                    [`&.${WidgetBoxClasses.standard}`]: {
                         backgroundColor: "white",
                     },
-                    "&.WidgetBox-embedded": {
+                    [`&.${WidgetBoxClasses.embedded}`]: {
                         backgroundColor: "white",
                     },
-                    "& .WidgetBox-header": {
+                    [`& .${WidgetBoxClasses.header}`]: {
                         height: "32px",
                         marginLeft: '10px',
                         marginRight: '5px',
                         borderBottom: '1px solid ' + theme.palette.divider,
                     },
-                    "& .WidgetBox-headerTitle": {
+                    [`& .${WidgetBoxClasses.headerTitle}`]: {
                         lineHeight: '32px',
                         fontWeight: "bold",
                     },
@@ -637,9 +647,9 @@ export function themeComponents(theme: Theme): ic3Components {
 
                     gridTemplateColumns: "325px 1fr",
 
-                    [`& .${AppClasses.appAppPayload}`]: {},
+                    [`& .${AppClasses.payload}`]: {},
 
-                    [`& .${AppClasses.appAppLeftFilter}`]: {
+                    [`& .${AppClasses.leftFilter}`]: {
                         borderRight: '1px solid #eeeeee',
                         padding: theme.spacing(0.5),
                     }
@@ -666,10 +676,6 @@ export function themeComponents(theme: Theme): ic3Components {
 
 }
 
-export function themeStatosDecorator(theme: Theme) {
-    return themeComponents(theme)
-}
-
 /**
  * The theme decorator allows to setup the Theme.components and Theme.ic3 using the theme
  * created from its partial options (e.g., using palette, typography, spacing, etc...)
@@ -683,4 +689,8 @@ export function themeDecorator(theme: Theme) {
     // Replace existing components.
     return themeComponents(theme)
 
+}
+
+export function themeDecorator2(theme: Theme) {
+    return themeComponents(theme)
 }

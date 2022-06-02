@@ -65,14 +65,6 @@ module.exports = {
             exposes: {
                 "./PluginDefinition": "./src/PluginDefinition",
             },
-            shared: {
-                // https://github.com/mui-org/material-ui/issues/21916
-                // "@emotion/styled": {singleton: true},
-                // "@emotion/core": {singleton: true},
-                //
-                // "react": {singleton: true},
-                // "react-dom": {singleton: true},
-            },
         }),
 
         new HtmlWebpackPlugin({
