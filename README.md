@@ -1,12 +1,14 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
-A working example of an icCube Dashboards plugin creating a custom theme.
+A working example of an icCube Dashboards plugin creating a custom theme for both the
+`editor` and the rendered `dashboards`.
 
 icCube is using Material UI as its underlying theme technology so if you are looking for inspiration, you can check
 [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
 This plugin is demonstrating how to:
 
+- change the logo (`editor`)
 - change the font (using [Web Font Loader](https://github.com/typekit/webfontloader))
 - change colors and define new color palettes
 - change typographies
