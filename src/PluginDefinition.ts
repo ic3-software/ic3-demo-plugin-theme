@@ -1,5 +1,5 @@
 import PluginLocalization from "./PluginLocalization.csv";
-import {ApiUtils, EmbeddedThemeNames, ILocalizationManager, IThemeManager} from "@ic3/reporting-api";
+import {ApiUtils, EmbeddedThemeNames, ILocalizationManager, ILogger, IThemeManager} from "@ic3/reporting-api";
 import {themeDecorator, themeDecorator2, themeOptions, themeOptions2} from "./PublicDemoTheme";
 import {themeEditorLondon, themeEditorLondonDecorator} from "./PublicDemoEditorTheme";
 
@@ -18,17 +18,17 @@ const PluginDefinition = ApiUtils.makePlugin({
      */
     id: "MyPluginTheme",
 
-    registerLocalization(manager: ILocalizationManager) {
+    registerLocalization(logger: ILogger, manager: ILocalizationManager) {
 
-        console.log("[MyPluginReact] registerLocalization")
+        logger.info("Demo", "[MyPluginTheme] registerLocalization")
 
         manager.registerLocalization(PluginLocalization);
 
     },
 
-    registerThemes(manager: IThemeManager) {
+    registerThemes(logger: ILogger, manager: IThemeManager) {
 
-        console.log("[MyPluginTheme] registerThemes")
+        logger.info("Demo", "[MyPluginTheme] registerThemes")
 
         // register a new theme
         manager.registerTheme(themeOptions, themeDecorator);
