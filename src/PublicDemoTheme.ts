@@ -1,6 +1,5 @@
 import {ThemeOptions} from "@mui/material";
 import {Theme} from "@mui/material/styles";
-import WebFont from "@iccube/webfontloader";
 import {
     AppClasses,
     ic3Components,
@@ -10,10 +9,16 @@ import {
     TableRowHeightOptions,
     WidgetBoxClasses
 } from "@ic3/reporting-api";
+import "@fontsource/rubik/300.css";
+import "@fontsource/rubik/400.css";
 
 export const themeId = "Demo";
 
 const fontFamily = "'Rubik', sans-serif";
+
+// Force loading the fonts
+document.fonts.load("300 12px Rubik");
+document.fonts.load("400 12px Rubik");
 
 /**
  * To make life easier. We can use as many font families as we want in a theme.
@@ -28,7 +33,6 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
     }
 }
 
-
 /**
  * Input of createMuiTheme( {...} )
  */
@@ -40,25 +44,18 @@ export const themeOptions: ThemeOptions = {
 
         cssClass: 'ic3-demo-theme',
 
-        loadFonts: (continuation: () => void) => {
-
-            // Remotely loading Google fonts but you can as well include the fonts in your plugin.
-            // icCube is using @fontsource to package the Statos theme fonts.
-
-            WebFont.load({
-                google: {
-                    families: ['Rubik:300,400']
-                },
-
-                active: function () {
-                    continuation();
-                },
-
-                inactive: function () {
-                    continuation();
-                },
-            });
-
+        /**
+         * To load the fonts, we recommend using @fontsource and css imports. Normally, fonts are loaded when they are
+         * first needed, but this can cause errors for some widgets that require the font size for calculating/drawing
+         * positions, e.g., charts.
+         *
+         * At the root of your theme definition file, use document.fonts.load(...) to force loading the font at the
+         * start of the application. Here, we use document.fonts.ready to wait for those fonts to load.
+         *
+         * Read more here: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API#concepts_and_usage
+         */
+        waitForFonts: () => {
+            return document.fonts.ready;
         },
 
         widgetBox: {
@@ -663,7 +660,7 @@ export function themeComponents(theme: Theme): ic3Components {
         ReportAppLeftPanel: {
             styleOverrides: {
                 root: {
-                    [`& .${ReportAppLeftPanelClasses.reportAppLeftPanelTitle}`]: {
+                    [`& .${ReportAppLeftPanelClasses.title}`]: {
                         paddingLeft: theme.spacing(2),
                         fontSize: '1.4em',
                         fontWeight: 400,

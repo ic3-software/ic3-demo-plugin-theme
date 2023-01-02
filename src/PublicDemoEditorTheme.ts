@@ -20,6 +20,15 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
     }
 }
 
+/**
+ * Loads the fonts from Google.
+ */
+WebFont.load({
+    google: {
+        families: ['Raleway:300,400']
+    },
+});
+
 export const themeEditorLondon = (): ThemeOptions => {
 
     return {
@@ -35,27 +44,6 @@ export const themeEditorLondon = (): ThemeOptions => {
             id: "ic3-demo-editor-theme",
 
             caption: "ic3 Demo Editor Theme",
-
-            loadFonts: (continuation: () => void) => {
-
-                // Remotely loading Google fonts but you can as well include the fonts in your plugin.
-                // icCube is using @fontsource to package the Statos theme fonts.
-
-                WebFont.load({
-                    google: {
-                        families: ['Raleway:300,400']
-                    },
-
-                    active: function () {
-                        continuation();
-                    },
-
-                    inactive: function () {
-                        continuation();
-                    },
-                });
-
-            },
 
             editor: {
                 logo: LogoIcon,
@@ -88,7 +76,32 @@ export const themeEditorLondon = (): ThemeOptions => {
         palette: {
 
             ic3: {
-                pageBackgroundColor: "#ffffff"
+                pageBackgroundColor: "#ffffff",
+
+                mdx: {
+                    'annotation': '#808100',
+                    'comment': "#a70",
+                    'definitionKeyword': "#0000FF",
+                    'keyword': "#0000FF",
+                    'labelName': "#a41af3",
+                    'number': "#008b8b",
+                    'operator': "#0000FF",
+                    'propertyName': "#F96C15",
+                    'separator': "#666",
+                    'string': "#008b8b",
+                    'variableName': "#c4398d",
+                    'dimension': "#951b81",
+                    'hierarchy': "#951b81",
+                    'level': "#e2b656",
+                    'member': "#54aa7d",
+                    'measureFolder': "#FB8A34",
+                    'measureGroup': "#F96C15",
+                    'measure': "#FDA853",
+                    'calcMeasure': "#FDA853",
+                    'event': "#4186a8",
+                    'set': "#f6d362",
+                }
+
             },
 
             primary: {
@@ -149,30 +162,6 @@ export const themeEditorLondon = (): ThemeOptions => {
                 "focusOpacity": 0.12,
                 "activatedOpacity": 0.12
             },
-
-            mdx: {
-                'annotation': '#808100',
-                'comment': "#a70",
-                'definitionKeyword': "#0000FF",
-                'keyword': "#0000FF",
-                'labelName': "#a41af3",
-                'number': "#008b8b",
-                'operator': "#0000FF",
-                'propertyName': "#F96C15",
-                'separator': "#666",
-                'string': "#008b8b",
-                'variableName': "#c4398d",
-                'dimension': "#951b81",
-                'hierarchy': "#951b81",
-                'level': "#e2b656",
-                'member': "#54aa7d",
-                'measureFolder': "#FB8A34",
-                'measureGroup': "#F96C15",
-                'measure': "#FDA853",
-                'calcMeasure': "#FDA853",
-                'event': "#4186a8",
-                'set': "#f6d362",
-            }
 
         },
 

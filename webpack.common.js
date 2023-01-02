@@ -41,6 +41,18 @@ module.exports = {
                     ]
                 },
                 {
+                    test: /\.css$/,
+                    use: ["style-loader", "css-loader"],
+                },
+
+                {
+                    test: /\.(woff|woff2)$/i,
+                    type: "asset/resource",
+                    generator: {
+                        filename: "static/fonts/[name][ext]",
+                    }
+                },
+                {
                     test: /PluginLocalization\.csv$/,
                     use: require.resolve("raw-loader"),
                 },
