@@ -27,6 +27,7 @@ variants for the following widgets:
 - slider (filter)
 - table
 - pivot-table
+- donut chart
 
 A theme is able to (re)define the default values of the widget options visible in the widget editor. This plugin is
 demonstrating new default values for the following widgets:

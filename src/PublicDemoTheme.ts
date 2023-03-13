@@ -357,6 +357,10 @@ export function themeComponents(theme: Theme): ic3Components {
                     [`&.${WidgetBoxClasses.embedded}`]: {
                         backgroundColor: "white",
                     },
+                    // Disables the box-shadow when the report is printed.
+                    [`.ic3-print &.${WidgetBoxClasses.standard}`]: {
+                        boxShadow: "unset"
+                    },
                     [`& .${WidgetBoxClasses.header}`]: {
                         height: "32px",
                         marginLeft: '10px',
@@ -668,6 +672,18 @@ export function themeComponents(theme: Theme): ic3Components {
                     }
                 }
             }
+        },
+
+        "amCharts4.AmCharts4DonutChart": {
+            variants: [
+                {
+                    props: {variant: "pieChart"},
+                    defaultProps: {
+                        donutInnerRadius: 0,
+                        labelText: ' '
+                    }
+                }
+            ]
         }
     };
 

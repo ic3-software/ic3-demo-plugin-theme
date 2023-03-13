@@ -12,6 +12,7 @@ variant.Fancy, Fancy
 variant.MicroSize, Micro Size
 variant.Pretto.fr, Pretto.fr
 variant.Rounded, Rounded Corners
+variant.pieChart, Pie Chart
 
 # -----------------------------------------------------------------------------
 # A common field can be defined as:
