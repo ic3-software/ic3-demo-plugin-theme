@@ -1,12 +1,12 @@
 {
   "name": "@ic3/demo-plugin-theme",
-  "version": "8.4.0-alpha.1",
+  "version": "8.4.0-alpha.2",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "8.4.0-alpha.1",
+    "@ic3/reporting-api": "8.4.0-alpha.2",
     "@fontsource/rubik": "4.5.14"
   },
   "devDependencies": {
@@ -16,7 +16,6 @@
     "@babel/preset-env": "7.20.2",
     "@babel/preset-react": "7.18.6",
     "@iccube/webfontloader": "1.0.0",
-    "@mui/material": "5.11.12",
     "@typescript-eslint/eslint-plugin": "5.54.1",
     "@typescript-eslint/parser": "5.54.1",
     "adm-zip": "0.5.10",
