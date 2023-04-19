@@ -2,6 +2,7 @@ import {ThemeOptions} from "@mui/material";
 import {Theme} from "@mui/material/styles";
 import {
     AppClasses,
+    FilterTreeClasses,
     ic3Components,
     PivotTableClasses,
     ReportAppLeftPanelClasses,
@@ -502,6 +503,50 @@ export function themeComponents(theme: Theme): ic3Components {
                     },
                 }
             ],
+        },
+
+        FilterTree: {
+            variants: [
+                {
+                    props: {variant: "MUI-Style"},
+                    style: {
+                        color: theme.palette.text.secondary,
+                        [`& .${FilterTreeClasses.itemContainer}`]: {
+                            borderTopRightRadius: theme.spacing(2),
+                            borderBottomRightRadius: theme.spacing(2),
+                            paddingRight: theme.spacing(1),
+                            fontWeight: theme.typography.fontWeightMedium,
+                            '&:hover': {
+                                backgroundColor: theme.palette.action.hover,
+                                [`& .${FilterTreeClasses.itemLabelContainer}`]: {
+                                    color: '#040404',
+                                },
+                            },
+                            [`& .${FilterTreeClasses.itemLabelContainer}`]: {
+                                fontWeight: 'inherit',
+                                color: 'inherit',
+                                '& .MuiButtonBase-root': {
+                                    display: 'none'   // remove button for selection
+                                }
+                            },
+                        },
+                    }
+                }
+            ]
+        },
+        /**
+         * We are using the same variant as in FilterTree, we want to change the size of the popover tree
+         */
+        FilterTreePopOver: {
+            variants: [
+                {
+                    props: {variant: "MUI-Style"},
+                    style: {
+                        height: "750px",
+                        width: "300px",
+                    }
+                }
+            ]
         },
 
         /**
