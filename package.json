@@ -1,23 +1,23 @@
 {
   "name": "@ic3/demo-plugin-theme",
-  "version": "8.4.2-alpha.1",
+  "version": "8.4.2",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "8.4.2-alpha.1",
-    "@fontsource/rubik": "5.0.1"
+    "@ic3/reporting-api": "8.4.2",
+    "@fontsource/rubik": "5.0.2"
   },
   "devDependencies": {
-    "css-loader": "6.7.4",
+    "css-loader": "6.8.1",
     "style-loader": "3.3.3",
-    "@babel/core": "7.21.8",
-    "@babel/preset-env": "7.21.5",
-    "@babel/preset-react": "7.18.6",
+    "@babel/core": "7.22.1",
+    "@babel/preset-env": "7.22.4",
+    "@babel/preset-react": "7.22.3",
     "@iccube/webfontloader": "1.0.0",
-    "@typescript-eslint/eslint-plugin": "5.59.7",
-    "@typescript-eslint/parser": "5.59.7",
+    "@typescript-eslint/eslint-plugin": "5.59.8",
+    "@typescript-eslint/parser": "5.59.8",
     "adm-zip": "0.5.10",
     "babel-loader": "9.1.2",
     "clean-webpack-plugin": "4.0.0",
@@ -32,7 +32,7 @@
     "raw-loader": "4.0.2",
     "ts-loader": "9.4.3",
     "typescript": "4.9.5",
-    "webpack": "5.84.0",
+    "webpack": "5.85.0",
     "webpack-cli": "5.1.1",
     "webpack-dev-server": "4.15.0",
     "webpack-merge": "5.9.0"
