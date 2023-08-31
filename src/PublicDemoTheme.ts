@@ -70,6 +70,9 @@ export const themeOptions: ThemeOptions = {
 
             layoutConfigId: 'Demo. Desktop Layout',
 
+            layoutGroup: "Demo",
+            layoutName: "Desktop",
+
             pageSize: {
                 type: "unlimited",
                 pageSizeUnits: "px",
