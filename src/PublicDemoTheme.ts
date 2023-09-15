@@ -12,6 +12,7 @@ import {
 } from "@ic3/reporting-api";
 import "@fontsource/rubik/300.css";
 import "@fontsource/rubik/400.css";
+import {pluginDemoThemeBreakpoints, publicDemoThemeLayouts} from "./PublicDemoLayouts";
 
 export const themeId = "Demo";
 
@@ -66,39 +67,7 @@ export const themeOptions: ThemeOptions = {
         /**
          * The first defined layout is used as the default one.
          */
-        layouts: [{
-
-            layoutConfigId: 'Demo. Desktop Layout',
-
-            layoutGroup: "Demo",
-            layoutName: "Desktop",
-
-            pageSize: {
-                type: "unlimited",
-                pageSizeUnits: "px",
-                pageWidth: 1366,
-            },
-
-            pageOrientation: "portrait",
-
-            pageMargin: {
-                sizeUnits: "px",
-                top: 50,
-                bottom: 50,
-                left: 50,
-                right: 50,
-            },
-
-            expandH: true,
-
-            grid: {
-                snap: true,
-                show: true,
-                width: 25,
-                height: 50,
-            },
-
-        }],
+        layouts: publicDemoThemeLayouts,
 
         /**
          * @see IThemeWidgetDefaults (IThemeManager.ts)
@@ -237,6 +206,8 @@ export const themeOptions: ThemeOptions = {
         }
 
     },
+
+    breakpoints: pluginDemoThemeBreakpoints,
 }
 
 export const themeOptions2 = {

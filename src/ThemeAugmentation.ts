@@ -56,3 +56,25 @@ declare module '@mui/material/styles/createTheme' {
     }
 
 }
+
+declare module '@mui/material/styles' {
+    interface BreakpointOverrides {
+
+        // Removing : icCube does not use them (and is removing them as well).
+
+        xs: false;
+        sm: false;
+        md: false;
+        lg: false;
+        xl: false;
+
+        // icCube's predefined breakpoints ( cannot be changed ).
+
+        mobile: true;
+        tablet: true;
+        laptop: true;
+        desktop: true;
+
+    }
+}
+
