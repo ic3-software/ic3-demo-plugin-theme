@@ -3,7 +3,7 @@ import {BreakpointsOptions} from "@mui/material/styles";
 
 const demoDesktopLayout: IWidgetLayoutDefinition = {
 
-    layoutConfigId: 'Demo. Desktop Layout',
+    layoutConfigId: "Demo. Desktop Layout",
 
     layoutGroup: "Demo",
     layoutName: "Desktop",
@@ -62,7 +62,6 @@ const demoGridLayout: IWidgetLayoutDefinition = {
             tablet: 1,
             laptop: 1,
             desktop: 1,
-            print: 1,
         },
 
         margin: {
@@ -70,7 +69,6 @@ const demoGridLayout: IWidgetLayoutDefinition = {
             tablet: 3,
             laptop: 6,
             desktop: 6,
-            print: 6,
         },
 
         columnSpacing: {
@@ -78,7 +76,6 @@ const demoGridLayout: IWidgetLayoutDefinition = {
             tablet: 1,
             laptop: 1,
             desktop: 1,
-            print: 1,
         },
 
         rowSpacing: {
@@ -86,7 +83,22 @@ const demoGridLayout: IWidgetLayoutDefinition = {
             tablet: 1,
             laptop: 1,
             desktop: 1,
-            print: 1,
+        },
+
+        // Used when switching a grid layout to multi. page layout (e.g., when printing).
+
+        print: {
+            multiplier: 1,
+            columnSpacing: 1,
+            rowSpacing: 1,
+        },
+
+        // Used when switching a grid layout to multi. page layout (e.g., when printing).
+
+        printLandscape: {
+            multiplier: 1,
+            columnSpacing: 1,
+            rowSpacing: 1,
         },
 
         groupSnapSteps: [0, 0.1, 0.2, 0.25, 0.3, 1 / 3, 0.4, 0.5, 0.6, 2 / 3, 0.7, 0.75, 0.8, 0.9, 1.0]

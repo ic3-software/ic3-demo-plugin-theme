@@ -65,6 +65,12 @@ export const themeOptions: ThemeOptions = {
         },
 
         /**
+         * A zoom applied to the widget content when rendered for printing.
+         * Defaulted to 0.64.
+         */
+        widgetContentPrintScale: 0.64,
+
+        /**
          * The first defined layout is used as the default one.
          */
         layouts: publicDemoThemeLayouts,
