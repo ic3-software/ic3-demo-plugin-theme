@@ -1,9 +1,7 @@
 import {IWidgetLayoutDefinition} from "@ic3/reporting-api";
 import {BreakpointsOptions} from "@mui/material/styles";
 
-const demoDesktopLayout: IWidgetLayoutDefinition = {
-
-    layoutConfigId: "Demo. Desktop Layout",
+export const demoDesktopLayout: Omit<IWidgetLayoutDefinition, 'layoutConfigId'> = {
 
     layoutGroup: "Demo",
     layoutName: "Desktop",
@@ -38,9 +36,7 @@ const demoDesktopLayout: IWidgetLayoutDefinition = {
 /**
  * A copy of the Statos layout for demo. purpose.
  */
-const demoGridLayout: IWidgetLayoutDefinition = {
-
-    layoutConfigId: "statos_grid_layout_copy",
+export const demoGridLayout: Omit<IWidgetLayoutDefinition, 'layoutConfigId'> = {
 
     layoutGroup: "Demo",
     layoutName: "Responsive Grid",
@@ -135,11 +131,9 @@ const demoGridLayout: IWidgetLayoutDefinition = {
 /**
  * A copy of the Statos layout for demo. purpose.
  */
-const demoGridLayout50 = {
+export const demoGridLayout50: Omit<IWidgetLayoutDefinition, 'layoutConfigId'> = {
 
     ...demoGridLayout,
-
-    layoutConfigId: "statos_grid_layout_split_50_copy",
 
     layoutName: "Responsive Grid ( Split 50% )",
 
@@ -152,7 +146,6 @@ const demoGridLayout50 = {
             tablet: 2,
             laptop: 1,
             desktop: 1,
-            print: 2
         },
 
     },
@@ -174,10 +167,3 @@ export const pluginDemoThemeBreakpoints: BreakpointsOptions = {
     }
 
 };
-
-/**
- * The first defined layout is used as the default one.
- */
-export const publicDemoThemeLayouts: IWidgetLayoutDefinition[] = [
-    demoGridLayout, demoGridLayout50, demoDesktopLayout
-]

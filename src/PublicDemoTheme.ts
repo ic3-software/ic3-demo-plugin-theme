@@ -12,9 +12,7 @@ import {
 } from "@ic3/reporting-api";
 import "@fontsource/rubik/300.css";
 import "@fontsource/rubik/400.css";
-import {pluginDemoThemeBreakpoints, publicDemoThemeLayouts} from "./PublicDemoLayouts";
-
-export const themeId = "Demo";
+import {demoDesktopLayout, demoGridLayout, demoGridLayout50, pluginDemoThemeBreakpoints} from "./PublicDemoLayouts";
 
 const fontFamily = "'Rubik', sans-serif";
 
@@ -41,7 +39,8 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
 export const themeOptions: ThemeOptions = {
 
     ic3: {
-        id: themeId,
+        id: "ic3_demo_theme",
+
         caption: "ic3 Demo Theme",
 
         cssClass: 'ic3-demo-theme',
@@ -73,7 +72,20 @@ export const themeOptions: ThemeOptions = {
         /**
          * The first defined layout is used as the default one.
          */
-        layouts: publicDemoThemeLayouts,
+        layouts: [
+            {
+                ...demoGridLayout,
+                layoutConfigId: "ic3-demo-theme-grid-layout"
+            },
+            {
+                ...demoGridLayout50,
+                layoutConfigId: "ic3-demo-theme-grid-layout50"
+            },
+            {
+                ...demoDesktopLayout,
+                layoutConfigId: "ic3-demo-theme-desktop-layout"
+            }
+        ],
 
         /**
          * @see IThemeWidgetDefaults (IThemeManager.ts)
@@ -219,9 +231,8 @@ export const themeOptions: ThemeOptions = {
 export const themeOptions2 = {
 
     ic3: {
-        id: themeId + "_2",
+        id: "ic3_demo_theme2",
         caption: "ic3 Demo Theme 2",
-
         cssClass: 'ic3-demo-theme',
     },
 
