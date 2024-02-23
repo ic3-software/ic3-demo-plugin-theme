@@ -34,7 +34,7 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
 }
 
 /**
- * Input of createMuiTheme( {...} )
+ * Input of `createMuiTheme()`
  */
 export const themeOptions: ThemeOptions = {
 
@@ -46,12 +46,12 @@ export const themeOptions: ThemeOptions = {
         cssClass: 'ic3-demo-theme',
 
         /**
-         * To load the fonts, we recommend using @fontsource and css imports. Normally, fonts are loaded when they are
+         * To load the fonts, we recommend using @fontsource and CSS imports. Normally, fonts are loaded when they are
          * first needed, but this can cause errors for some widgets that require the font size for calculating/drawing
          * positions, e.g., charts.
          *
-         * At the root of your theme definition file, use document.fonts.load(...) to force loading the font at the
-         * start of the application. Here, we use document.fonts.ready to wait for those fonts to load.
+         * At the root of your theme definition file, use `document.fonts.load(...)` to force loading the font at the
+         * start of the application. Here, we use `document.fonts.ready` to wait for those fonts to load.
          *
          * Read more here: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API#concepts_and_usage
          */
@@ -112,7 +112,7 @@ export const themeOptions: ThemeOptions = {
             },
 
             /**
-             * Setup widget options for both ic3.Table & ic3.PivotTable widgets.
+             * Setup widget options for both `ic3.Table` & `ic3.PivotTable` widgets.
              */
             options: {
 
@@ -227,74 +227,6 @@ export const themeOptions: ThemeOptions = {
 
     breakpoints: pluginDemoThemeBreakpoints,
 }
-
-export const themeOptions2 = {
-
-    ic3: {
-        id: "ic3_demo_theme2",
-        caption: "ic3 Demo Theme 2",
-        cssClass: 'ic3-demo-theme',
-    },
-
-
-    /**
-     * Material Playground for colors -> https://material.io/resources/color
-     */
-    palette: {
-
-        primary: {main: "#cddc39"},
-        secondary: {main: "#7986cb"},
-        error: {main: "#f44336"},
-        warning: {main: "#ff9800"},
-        info: {main: "#2196f3"},
-        success: {main: "#4caf50"},
-        text: {primary: "#16194C"},
-
-        ic3: {
-
-            pageBackgroundColor: '#ffffff',
-
-            selected: '#ffc107',
-            selectedText: '#fafafa',
-            selectedBackground: '#fff350',
-            selectedOpacity: 1,
-            unSelectedOpacity: 0.4,
-
-
-            /**
-             * list of palettes available in the reporting
-             */
-            chartPalettes: {
-                default: ["#ecea6c", "#e4af5d", "#de9e9c", "#db83c7", "#ae87d7", "#689ecd", "#3dacb8", "#5cc9c1", "#88d786", "#55c670"],
-                heatmap1: ["#006837", "#1a9850", "#66bd63", "#a6d96a", "#d9ef8b", "#fee08b", "#fdae61", "#f46d43", "#d73027", "#a50026"],
-                heatmap2: ["#313695", "#4575b4", "#74add1", "#abd9e9", "#e0f3f8", "#fee08b", "#fdae61", "#f46d43", "#d73027", "#a50026"],
-                // you can add more palettes here
-            },
-
-            /**
-             * List of single colors
-             *
-             * The list will be completed with MUI palette colors (primary,..text) and the default chart palette
-             *
-             * @see MandatorySingleColors
-             */
-            chartSingleColors: {
-                default: "#cddc39",
-                // you can add more colors here
-            },
-
-        },
-    },
-}
-
-/**
- * Add variant to MuiButtons for typescript (not working ?)
- */
-// declare module '@mui/material/Button' {
-//     interface ButtonPropsVariantOverrides {
-//         Fancy: true;
-//     }
-// }
 
 /**
  * Attach the Material-UI components to the theme.
@@ -459,10 +391,10 @@ export function themeComponents(theme: Theme): ic3Components {
         /**
          * Button Filter variants
          *
-         * Buttons are rendered using MUI buttons. To add a variants you need two steps
+         * Buttons are rendered using MUI buttons. To add a variants you need two steps.
          *
-         * 1) Add to FilterButtons the name of the variants so it's available in the UI
-         * 2) Create your variant styling a MUI button
+         * 1) Add to FilterButtons the name of the variants to make it available in the UI.
+         * 2) Create your variant styling a MUI button.
          */
         FilterButtons: {
             variants: [
@@ -526,7 +458,7 @@ export function themeComponents(theme: Theme): ic3Components {
             ]
         },
         /**
-         * We are using the same variant as in FilterTree, we want to change the size of the popover tree
+         * We are using the same variant as in FilterTree, we want to change the size of the popover tree.
          */
         FilterTreePopOver: {
             variants: [
@@ -595,10 +527,10 @@ export function themeComponents(theme: Theme): ic3Components {
                 {
                     props: {variant: "Pretto.fr", size: "small"},
                     style: {
-                        // do not use the same keys (i.e., &. MuiSlider-track)
-                        // unless you want to overwrite the whole css settings
+                        // Do not use the same keys (i.e., &. MuiSlider-track)
+                        // unless you want to overwrite the CSS settings.
 
-                        // using a different key (higher css prio) we can overwrite just sizing
+                        // using a different key (higher CSS prio) we can overwrite just the sizing.
                         '& .FilterSlider-slider .MuiSlider-thumb': {
                             height: 18,
                             width: 18,
@@ -616,10 +548,10 @@ export function themeComponents(theme: Theme): ic3Components {
         /**
          * Table variants
          *
-         * The underlying component for the table is the MUI DataGrid Pro (it's complex component)
+         * The component for the table is the MUI DataGrid Pro (it is a complex component).
          *
          *  Demo : https://mui.com/components/data-grid/style/#custom-theme
-         *  MUI CSS :  https://mui.com/api/data-grid/data-grid-pro/#css
+         *  MUI CSS : https://mui.com/api/data-grid/data-grid-pro/#css
          */
         Table: {
             variants: [
@@ -726,8 +658,8 @@ export function themeComponents(theme: Theme): ic3Components {
 }
 
 /**
- * The theme decorator allows to setup the Theme.components and Theme.ic3 using the theme
- * created from its partial options (e.g., using palette, typography, spacing, etc...)
+ * The theme decorator allows to set up the `Theme.components` and `Theme.ic3` using the theme
+ * created from its partial options (e.g., using palette, typography, spacing, etc…).
  *
  * @param theme created from themeOptions
  */
@@ -738,8 +670,4 @@ export function themeDecorator(theme: Theme) {
     // Replace existing components.
     return themeComponents(theme)
 
-}
-
-export function themeDecorator2(theme: Theme) {
-    return themeComponents(theme)
 }

@@ -1,7 +1,8 @@
 import PluginLocalization from "./PluginLocalization.csv";
 import {ApiUtils, EmbeddedThemeNames, ILocalizationManager, ILogger, IThemeManager} from "@ic3/reporting-api";
-import {themeDecorator, themeDecorator2, themeOptions, themeOptions2} from "./PublicDemoTheme";
-import {themeEditorLondon, themeEditorLondonDecorator} from "./PublicDemoEditorTheme";
+import {themeDecorator, themeOptions} from "./theme/PublicDemoTheme";
+import {themeEditorLondon, themeEditorLondonDecorator} from "./theme/PublicDemoEditorTheme";
+import {themeDecorator2, themeOptions2} from "./theme/PublicDemoTheme2";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -30,10 +31,10 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         logger.info("Demo", "[MyPluginTheme] registerThemes")
 
-        // register a new theme
+        // Register a new theme
         manager.registerTheme(themeOptions, themeDecorator);
 
-        // you might also create a new theme based on an existing theme
+        // You might also create a new theme based on an existing theme.
         manager.registerTheme(themeOptions2, themeDecorator2, EmbeddedThemeNames.Statos);
 
         manager.registerEditorTheme(themeEditorLondon(), themeEditorLondonDecorator);

@@ -1,22 +1,21 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
 A working example of an icCube Dashboards plugin creating a custom theme for both the
-`editor` and the rendered `dashboards`.
+_editor_ and the _dashboards_.
 
-icCube is using Material UI as its underlying theme technology so if you are looking for inspiration, you can check
-[MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
+icCube uses Material UI as its theme technology. For inspiration, see [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
 This plugin is demonstrating how to:
 
-- change the logo (`editor`)
-- change the font (using [Web Font Loader](https://github.com/typekit/webfontloader))
+- change the logo (_editor_)
+- change the font ([using font source](https://fontsource.org/))
 - change colors and define new color palettes
 - change typographies
 - add some dashboard layouts
 
 as well as:
 
-- theming the dashboard application (i.e., list of dashboard application) menu
+- theming the dashboard application menu (i.e., list of dashboard application).
 
 A theme can define variants (i.e., sets of preset widget options). This plugin is demonstrating add to one or more
 variants for the following widgets:
@@ -65,6 +64,24 @@ replacing the string `MyPluginTheme` by the actual name you'd like to give to yo
 Keep that name simple (i.e., ASCII letter without any space, separator, etc...) as it will be used as a folder name
 (once deployed into an icCube server), Webpack module name, localization id, etc... That name must be unique across all
 the plugins loaded into an icCube server.
+
+### Project skeleton
+
+This is the folder structure of a reporting plugin. Using this structure, you can combine parts of the other example plugins.
+
+```
+ic3-demo-plugin-theme
+ |- bin                 : scripts for building
+ |- dist                : build result
+ |- node_modules        : npm packages
+ |- public              : 
+ `- src                 : code sources
+   |- @types            : TS types
+   |- images            : images from widgets / logos for themes
+   |- theme             : theme definition files
+   |- transformations   : transformation definition files
+   `- widget            : widget definition files
+```
 
 ### Develop
 

@@ -1,11 +1,15 @@
 import {cyan} from "@mui/material/colors";
 import {Theme, ThemeOptions} from "@mui/material";
 import {ic3Components} from "@ic3/reporting-api";
-
-import LogoIcon from "./images/demo_logo.svg";
-import WebFont from "@iccube/webfontloader";
+import LogoIcon from "../images/demo_logo.svg";
+import "@fontsource/raleway/300.css";
+import "@fontsource/raleway/400.css";
 
 const fontFamily = "'Raleway', sans-serif";
+
+// Force loading the fonts
+document.fonts.load("300 12px Raleway");
+document.fonts.load("400 12px Raleway");
 
 /**
  * To make life easier. We can use as many font families as we want in a theme.
@@ -19,15 +23,6 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
         letterSpacing: `${Math.round(spacing / size)}em`
     }
 }
-
-/**
- * Loads the fonts from Google.
- */
-WebFont.load({
-    google: {
-        families: ['Raleway:300,400']
-    },
-});
 
 export const themeEditorLondon = (): ThemeOptions => {
 
@@ -48,7 +43,11 @@ export const themeEditorLondon = (): ThemeOptions => {
             editor: {
                 logo: LogoIcon,
                 logoAlt: "LOndon"
-            }
+            },
+
+            waitForFonts: () => {
+                return document.fonts.ready;
+            },
 
         },
 
@@ -171,6 +170,9 @@ export const themeEditorLondon = (): ThemeOptions => {
 export function themeEditorLondonDecorator(theme: Theme): ic3Components {
     return {
 
+        /**
+         * Example on how to style the editor bar and the top bar in the app.
+         */
         // App: {
         //     styleOverrides: {
         //         root: (props: AppDivProps) => {
@@ -244,6 +246,9 @@ export function themeEditorLondonDecorator(theme: Theme): ic3Components {
 
         },
 
+        /**
+         * Example on how to style the tabs in the widget editor.
+         */
         // MuiTab: {
         //     styleOverrides: {
         //         root: {
@@ -252,7 +257,10 @@ export function themeEditorLondonDecorator(theme: Theme): ic3Components {
         //         }
         //     }
         // },
-        //
+
+        /**
+         * Example on how to style the query builder node.
+         */
         // QueryBuilderNode: {
         //     styleOverrides: {
         //         root: {
