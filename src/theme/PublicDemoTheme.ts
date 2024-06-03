@@ -1,9 +1,8 @@
 import {ThemeOptions} from "@mui/material";
-import {Theme} from "@mui/material/styles";
+import {Theme, Components} from "@mui/material/styles";
 import {
     AppClasses,
     FilterTreeClasses,
-    ic3Components,
     PivotTableClasses,
     ReportAppLeftPanelClasses,
     TableClasses,
@@ -233,9 +232,9 @@ export const themeOptions: ThemeOptions = {
  *
  * Typed version
  *
- * Hint: types might get tricky, you can change the return type to any
+ * Hint: types might get tricky, you can change the return type to `any`.
  */
-export function themeComponents(theme: Theme): ic3Components {
+export function themeComponents(theme: Theme): Components {
 
     return {
         /**
@@ -652,7 +651,48 @@ export function themeComponents(theme: Theme): ic3Components {
                     }
                 }
             ]
-        }
+        },
+
+        /**
+         * Example on how to add a variant for the column chart.
+         * This variant has rounded corners.
+         */
+        "amCharts4.AmCharts4RegularColumnChart": {
+            variants: [
+                {
+                    props: {variant: "variantRoundedCorners"},
+                    defaultProps: {
+                        postRenderHook: {
+                            hook: (value: any) => {
+                                // get the amCharts chart
+                                const chart = value.getChart();
+
+                                chart.series.each((series: any) => {
+                                    const columns = series.columns.template;
+                                    columns.column.cornerRadiusTopLeft = 7;
+                                    columns.column.cornerRadiusTopRight = 7;
+                                });
+
+                            }
+                        },
+                    },
+                }
+            ]
+        },
+
+        /*
+        To extend the MUI C Pro components, the date picker and the data grid.
+
+        1) Add to your package.json devDependencies:
+        "@mui/x-data-grid-pro":"7.4.0",
+        "@mui/x-date-pickers-pro": "7.4.0",
+
+        2) Extend theme components from MUI X PRO. Add this to the imports of this file:
+        import type {} from '@mui/x-data-grid-pro/themeAugmentation';
+        import type {} from '@mui/x-date-pickers-pro/themeAugmentation';
+
+        3) Now you can add below, e.g.,: MuiDataGrid: {}
+         */
     };
 
 }
