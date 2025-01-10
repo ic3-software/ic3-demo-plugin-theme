@@ -1,5 +1,6 @@
 import {IWidgetLayoutDefinition} from "@ic3/reporting-api";
 import {BreakpointsOptions} from "@mui/material/styles";
+import LogoIcon from "../images/demo_logo.svg";
 
 export const demoDesktopLayout: Omit<IWidgetLayoutDefinition, 'layoutConfigId'> = {
 
@@ -167,3 +168,116 @@ export const pluginDemoThemeBreakpoints: BreakpointsOptions = {
     }
 
 };
+
+const formats = {
+    dateTimeFormat: "dd-MM-yyyy HH:mm:ss",
+    dateFormat: "dd-MM-yyyy",
+    timeFormat: "HH:mm:ss",
+};
+
+export const demoPrintLayout:Omit<IWidgetLayoutDefinition, 'layoutConfigId'> = {
+
+    layoutGroup: "Demo",
+    layoutName: "A4 Landscape",
+
+    pageBackgroundColor: "#f5f5f5",
+
+    applyWidgetContentPrintScaleForRendering: true,
+
+    pageSize: {
+        type: "known",
+        name: 'A4'
+    },
+
+    pageOrientation: "landscape",
+
+    pageMargin: {
+        sizeUnits: "cm",
+        top: 0.5,
+        bottom: 0.5,
+        left: 1,
+        right: 1,
+    },
+
+    grid: {
+        snap: true,
+        show: true,
+        width: 15,
+        height: 15,
+    },
+
+    header: {
+
+        sizeUnits: "cm",
+        height: 1,
+
+        style: {paddingTop: '8px'},
+
+        left: {
+            logo: {
+                src: LogoIcon,
+                style: {height: "20px"}
+            }
+        },
+        center: {
+            content: {
+                variant: "body2",
+                align: "center" as 'inherit' | 'left' | 'center' | 'right' | 'justify',
+                color: "textSecondary",
+                text: "numbers are in thousands",
+                style: {fontSize: '12px'},
+                ...formats
+            }
+        },
+        right: {
+            content: {
+                variant: "body2",
+                align: "right" as 'inherit' | 'left' | 'center' | 'right' | 'justify',
+                color: "textSecondary",
+                text: "printed on: @dateTime",
+                style: {fontSize: '12px'},
+                ...formats
+            }
+        },
+
+    },
+
+    footer: {
+
+        sizeUnits: "cm",
+        height: 1,
+
+        style: {borderTop: "1px solid lightgrey", paddingTop: '8px'},
+
+        left: {
+            content: {
+                variant: "body2",
+                align: "center" as 'inherit' | 'left' | 'center' | 'right' | 'justify',
+                color: "textSecondary",
+                text: "@reportName",
+                style: {fontSize: '12px'},
+                ...formats
+            }
+        },
+        center: {
+            content: {
+                variant: "body2",
+                align: "center" as 'inherit' | 'left' | 'center' | 'right' | 'justify',
+                color: "textSecondary",
+                text: "version 1.0.0",
+                style: {fontSize: '12px'},
+                ...formats
+            }
+        },
+        right: {
+            content: {
+                variant: "body2",
+                align: "right" as 'inherit' | 'left' | 'center' | 'right' | 'justify',
+                color: "textSecondary",
+                text: "@pageNb/@pageCount",
+                style: {fontSize: '12px'},
+                ...formats
+            }
+        },
+    }
+}

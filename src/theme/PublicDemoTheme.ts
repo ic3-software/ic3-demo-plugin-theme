@@ -1,5 +1,5 @@
 import {ThemeOptions} from "@mui/material";
-import {Theme, Components} from "@mui/material/styles";
+import {Components, Theme} from "@mui/material/styles";
 import {
     AppClasses,
     FilterTreeClasses,
@@ -11,7 +11,13 @@ import {
 } from "@ic3/reporting-api";
 import "@fontsource/rubik/300.css";
 import "@fontsource/rubik/400.css";
-import {demoDesktopLayout, demoGridLayout, demoGridLayout50, pluginDemoThemeBreakpoints} from "./PublicDemoLayouts";
+import {
+    demoDesktopLayout,
+    demoGridLayout,
+    demoGridLayout50,
+    demoPrintLayout,
+    pluginDemoThemeBreakpoints
+} from "./PublicDemoLayouts";
 
 const fontFamily = "'Rubik', sans-serif";
 
@@ -83,6 +89,10 @@ export const themeOptions: ThemeOptions = {
             {
                 ...demoDesktopLayout,
                 layoutConfigId: "ic3-demo-theme-desktop-layout"
+            },
+            {
+                ...demoPrintLayout,
+                layoutConfigId: "ic3-demo-theme-A4-landscape"
             }
         ],
 
