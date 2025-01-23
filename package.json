@@ -1,12 +1,12 @@
 {
   "name": "@ic3/demo-plugin-theme",
-  "version": "8.6.0",
+  "version": "8.6.1",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-theme",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "8.6.0",
+    "@ic3/reporting-api": "8.6.1",
     "@fontsource/raleway": "5.1.1",
     "@fontsource/rubik": "5.1.1"
   },
