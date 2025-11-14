@@ -1,13 +1,21 @@
 import {
+    ic3BaseComponents,
+    ic3ComponentNameToClassKey,
+    ic3ComponentsPropsList,
     ic3Palette,
     ic3PaletteOptions,
     ic3Theme,
     ic3ThemeOptions,
     ic3Typography,
-    ic3TypographyOptions,
+    ic3TypographyOptions
 } from "@ic3/reporting-api";
 
-declare module "@mui/material/styles/createPalette" {
+/**
+ *
+ * MUI Module augmentation
+ *
+ */
+declare module "@mui/material/styles" {
 
     interface Palette {
 
@@ -20,25 +28,18 @@ declare module "@mui/material/styles/createPalette" {
         ic3?: ic3PaletteOptions;
 
     }
-}
 
-declare module "@mui/material/styles/createTypography" {
-
-    interface Typography {
+    interface TypographyVariants {
 
         ic3: ic3Typography;
 
     }
 
-    interface TypographyOptions {
+    interface TypographyVariantsOptions {
 
         ic3?: ic3TypographyOptions;
 
     }
-
-}
-
-declare module '@mui/material/styles/createTheme' {
 
     interface Theme {
 
@@ -47,7 +48,7 @@ declare module '@mui/material/styles/createTheme' {
     }
 
     /**
-     * Input of createMuiTheme( {...} )
+     * Input of createTheme( {...} )
      */
     interface ThemeOptions {
 
@@ -55,9 +56,18 @@ declare module '@mui/material/styles/createTheme' {
 
     }
 
-}
+    interface Components extends ic3BaseComponents {
 
-declare module '@mui/material/styles' {
+    }
+
+    interface ComponentNameToClassKey extends ic3ComponentNameToClassKey {
+
+    }
+
+    interface ComponentsPropsList extends ic3ComponentsPropsList {
+
+    }
+
     interface BreakpointOverrides {
 
         // Removing : icCube does not use them (and is removing them as well).

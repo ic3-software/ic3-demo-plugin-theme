@@ -39,7 +39,7 @@ function typo(weight: 300 | 400, size: number, line: number, spacing: number) {
 }
 
 /**
- * Input of `createMuiTheme()`
+ * Input of `createTheme()`
  */
 export const themeOptions: ThemeOptions = {
 

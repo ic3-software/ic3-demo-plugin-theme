@@ -1,6 +1,5 @@
 import {cyan} from "@mui/material/colors";
-import {Theme, ThemeOptions} from "@mui/material";
-import {ic3Components} from "@ic3/reporting-api";
+import {Components, Theme, ThemeOptions} from "@mui/material";
 import LogoIcon from "../images/demo_logo.svg";
 import "@fontsource/raleway/300.css";
 import "@fontsource/raleway/400.css";
@@ -167,7 +166,7 @@ export const themeEditorLondon = (): ThemeOptions => {
     }
 }
 
-export function themeEditorLondonDecorator(theme: Theme): ic3Components {
+export function themeEditorLondonDecorator(theme: Theme): Components {
     return {
 
         /**
