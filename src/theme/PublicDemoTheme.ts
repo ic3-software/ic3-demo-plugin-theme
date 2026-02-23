@@ -1,4 +1,4 @@
-import {ThemeOptions} from "@mui/material";
+import {ThemeOptions} from "@mui/material/styles";
 import {Components, Theme} from "@mui/material/styles";
 import {
     AppClasses,

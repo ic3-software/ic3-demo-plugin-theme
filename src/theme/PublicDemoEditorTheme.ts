@@ -1,5 +1,5 @@
 import {cyan} from "@mui/material/colors";
-import {Components, Theme, ThemeOptions} from "@mui/material";
+import {Components, Theme, ThemeOptions} from "@mui/material/styles";
 import LogoIcon from "../images/demo_logo.svg";
 import "@fontsource/raleway/300.css";
 import "@fontsource/raleway/400.css";
@@ -35,13 +35,13 @@ export const themeEditorLondon = (): ThemeOptions => {
              *     options.defaultEditorThemeId = ...
              * </pre>
              */
-            id: "ic3-demo-editor-theme",
+            id: "ic3-demo-editor-london",
 
             caption: "ic3 Demo Editor Theme",
 
             editor: {
                 logo: LogoIcon,
-                logoAlt: "LOndon"
+                logoAlt: "London"
             },
 
             waitForFonts: () => {
@@ -182,7 +182,7 @@ export function themeEditorLondonDecorator(theme: Theme): Components {
         //                 },
         //                 gridTemplateColumns: props.leftBarOptions === LeftBarOptions.None ? "0px 1fr"
         //                     : (
-        //                         props.leftBarOptions === LeftBarOptions.Standard ? "40px 1fr"
+        //                         props.leftBarOptions === LeftBarOptions.EditorMode ? "40px 1fr"
         //                             : "250px 1fr"
         //                     ),
         //             };

@@ -9,7 +9,7 @@ import {
     ic3Typography,
     ic3TypographyOptions
 } from "@ic3/reporting-api";
-
+import {ic3Breakpoint} from "@ic3/common-api";
 /**
  *
  * MUI Module augmentation
@@ -68,23 +68,7 @@ declare module "@mui/material/styles" {
 
     }
 
-    interface BreakpointOverrides {
-
-        // Removing : icCube does not use them (and is removing them as well).
-
-        xs: false;
-        sm: false;
-        md: false;
-        lg: false;
-        xl: false;
-
-        // icCube's predefined breakpoints ( cannot be changed ).
-
-        mobile: true;
-        tablet: true;
-        laptop: true;
-        desktop: true;
+    interface BreakpointOverrides extends ic3Breakpoint {
 
     }
 }
-

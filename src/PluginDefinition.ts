@@ -1,5 +1,6 @@
 import PluginLocalization from "./PluginLocalization.csv";
-import {ApiUtils, EmbeddedThemeNames, ILocalizationManager, ILogger, IThemeManager} from "@ic3/reporting-api";
+import {ILogger} from "@ic3/common-api"
+import {ApiUtils, EmbeddedThemeNames, ILocalizationManager, IThemeManager} from "@ic3/reporting-api";
 import {themeDecorator, themeOptions} from "./theme/PublicDemoTheme";
 import {themeEditorLondon, themeEditorLondonDecorator} from "./theme/PublicDemoEditorTheme";
 import {themeDecorator2, themeOptions2} from "./theme/PublicDemoTheme2";

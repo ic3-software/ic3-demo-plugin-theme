@@ -1,4 +1,4 @@
-## icCube Dashboards Plugin (Javascript/Typescript)
+## icCube Dashboards Plugin (JavaScript/TypeScript)
 
 A working example of an icCube Dashboards plugin creating a custom theme for both the
 _editor_ and the _dashboards_.
@@ -41,7 +41,7 @@ setup of the `ModuleFederationPlugin` in the [webpack.common.js](./webpack.commo
 
 ### Getting Started
 
-Clone that Git repository that is proposing a common Javascript/Typescript project using Webpack.
+Clone that Git repository that is proposing a common JavaScript/TypeScript project using Webpack.
 
 Use `npm` to install the dependencies:
 
