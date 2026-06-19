@@ -161,10 +161,10 @@ export const pluginDemoThemeBreakpoints: BreakpointsOptions = {
     keys: ["mobile", "tablet", "laptop", "desktop"],
 
     values: {
-        mobile: 600,
-        tablet: 900,
-        laptop: 1250,
-        desktop: 1600,
+        mobile: 0,
+        tablet: 600,
+        laptop: 900,
+        desktop: 1250,
     }
 
 };
