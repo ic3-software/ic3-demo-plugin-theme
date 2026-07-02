@@ -40,6 +40,10 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         manager.registerEditorTheme(themeEditorLondon(), themeEditorLondonDecorator);
 
+        manager.registerThemeProcessor("test-processor", (theme, params) => {
+            theme.palette.text.primary = params.textColor;
+        });
+
     },
 
 });
